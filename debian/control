@@ -1,0 +1,12 @@
+Source: aurex-pam-script
+Section: admin
+Priority: optional
+Maintainer: Luis Antonio Garcia Gisbert <luisgg@gmail.com>
+Build-Depends: debhelper (>= 7.0)
+Standards-Version: 3.9.3
+
+Package: aurex-pam-script
+Architecture: all
+Depends: ${misc:Depends}, libpam-script
+Description: aurex libpam_script management
+ The package installs the required tools to manage libpam-script

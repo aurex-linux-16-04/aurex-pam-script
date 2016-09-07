@@ -1,0 +1,2 @@
+/usr/share/aurex-pam-script/ses_open	/usr/share/aurex-pam-quota/pam_script_ses_open
+/usr/share/aurex-pam-script/ses_close	/usr/share/aurex-pam-quota/pam_script_ses_close
