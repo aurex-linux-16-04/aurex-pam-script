@@ -1,0 +1,40 @@
+#!/bin/sh
+# -------
+# File:        aurex-pam-run
+# Description: simple script to run diverse pam_scrips using rub-Transmute plain Ubuntu into golden AureX
+# Author:      Luis Antonio Garcia Gisbert <luisgg@gmail.com> 
+# 
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along 
+# with this program; if not, write to the Free Software Foundation, Inc., 
+# 51 Franklin St, Fifth Floor, Boston MA 02110-1301 USA
+# --------
+
+# vars
+# ----
+# generate scripts directory name from the name of the ths script (it uses to be a link)
+PAM_BASE_DIR="/etc/aurex-pam-scripts"
+PAM_BASE_NAME="$(basename "$0" |sed -e "s%pam_script_%%")"
+PAM_SCRIPTS_DIR="${PAM_BASE_DIR}/${PAM_BASE_NAME}.d"
+
+# tests
+#------
+[ -d "$PAM_SCRIPTS_DIR" ] || exit 0
+
+# environment
+[ "$PAM_SERVICE" ] && [ "$PAM_TYPE" ] && [ "$PAM_USER" ] || exit 0
+
+export PAM_SERVICE PAM_TYPE PAM_USER PAM_RUSER PAM_RHOST PAM_TTY PAM_AUTHTOK
+
+run-parts "$PAM_SCRIPTS_DIR" || true
+
+exit 0

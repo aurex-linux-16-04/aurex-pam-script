@@ -8,5 +8,6 @@ Standards-Version: 3.9.3
 Package: aurex-pam-script
 Architecture: all
 Depends: ${misc:Depends}, libpam-script
+Conflicts: ausias-cc-default-settings (<= 0.92), aurex-pam-quota (<= 0.6)
 Description: aurex libpam_script management
- The package installs the required tools to manage libpam-script
+ Run libpam-scripts in the aurex way
