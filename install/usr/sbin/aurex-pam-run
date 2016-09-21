@@ -22,7 +22,7 @@
 # vars
 # ----
 # generate scripts directory name from the name of the ths script (it uses to be a link)
-PAM_BASE_DIR="/etc/aurex-pam-scripts"
+PAM_BASE_DIR="/etc/aurex-pam-script"
 PAM_BASE_NAME="$(basename "$0" |sed -e "s%pam_script_%%")"
 PAM_SCRIPTS_DIR="${PAM_BASE_DIR}/${PAM_BASE_NAME}.d"
 
